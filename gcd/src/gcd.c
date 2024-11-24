@@ -2,13 +2,13 @@
 #include <stdlib.h>
 
 // Calculating the GCD using the Euclidean algorithm 
-
 long long gcd(long long a, long long b) {
     if (b == 0) {
         //Return the absolute value of a
         return llabs(a);
     }
-    //Return the algorithm's results
+    
+    // Return the algorithm's results
     return gcd(b, a % b);
 }
 
