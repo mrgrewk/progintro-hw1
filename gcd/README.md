@@ -11,7 +11,7 @@
 ### Compiling
 Navigate through the terminal to the prefered directory you would like the program to get compiled in and run the following command:
 ```bash
-gcc-O3-Wall-Wextra-Werror-pedantic-o gcd gcd.c
+gcc -O3 -Wall -Wextra -Werror -pedantic -o gcd gcd.c
 ```
 > [!IMPORTANT]
 > Make sure the 32-bit gcc development tools are installed.
