@@ -35,9 +35,11 @@ After compilation, run the program with:
 *It is recomended to seperate the arguments by one space as instructed earlier, otherwise the program may show unexpected behavior.*
 
 **2. <ins>Output</ins>**
+
 The program outputs the result in the terminal as: gcd(\<num1\>, \<num2\>) = \<result\>
 
 **3. <ins>Termination</ins>**
+
 The program terminates on its own after displaying the result and returns exit code 0.
 
 If the arguments given to the program are of incorrect type or 0 is given as a value, then the program terminates without giving a result and returns exit code 1.
@@ -74,3 +76,6 @@ echo $?
  Usage: ./gcd <num1> <num2>
  $ echo $?
  1
+ $ time ./gcd 8473218639530741684 3751874978312684508
+ gcd(8473218639530741684, 3751874978312684508) = 4
+ 0.002u 0.000s 0:00.00 0.0%
