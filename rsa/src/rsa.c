@@ -70,7 +70,7 @@ int main(int argc, char *argv[]) {
     }
     
     // Read arguments
-    char *operation = argv[1];
+    operation = argv[1];
     int e = atoi(argv[2]);
     int d = atoi(argv[3]);
     int p = atoi(argv[4]);
