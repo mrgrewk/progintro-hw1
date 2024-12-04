@@ -23,6 +23,13 @@ int is_prime(int num) {
     return 1;
 }
 
+// Function to check if a string can be converted to a valid integer
+int is_valid_integer(const char* str) {
+    char *endptr;
+    strtol(str, &endptr, 10);
+    return *endptr == '\0';  // If we successfully parse the entire string
+}
+
 long long mod_exp(long long base, long long exp, long long mod) {
     if (mod <= 0) {
         printf("Error: modulus must be greater than zero\n");
@@ -30,7 +37,7 @@ long long mod_exp(long long base, long long exp, long long mod) {
     }
 
     long long result = 1;
-    base = base % mod; // Reduce base mod 'mod'
+    base = base % mod;
 
     while (exp > 0) {
         // If exp is odd, multiply base with result
@@ -50,6 +57,18 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    // Read arguments and check if they are valid integers
+    char *operation = argv[1];
+    if (strcmp(operation, "enc") != 0 && strcmp(operation, "dec") != 0) {
+        printf("Error: First argument must be 'enc' or 'dec'\n");
+        return 1;
+    }
+
+    if (!is_valid_integer(argv[2]) || !is_valid_integer(argv[3]) || !is_valid_integer(argv[4]) || !is_valid_integer(argv[5])) {
+        printf("Error: Exponent or prime arguments must be valid integers\n");
+        return 1;
+    }
+    
     // Read arguments
     char *operation = argv[1];
     int e = atoi(argv[2]);
