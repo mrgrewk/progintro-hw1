@@ -25,10 +25,13 @@ int is_prime(int num) {
 
 // Function to check if a string can be converted to a valid integer
 int is_valid_integer(const char* str) {
-    char *endptr;
-    strtol(str, &endptr, 10);
-    return *endptr == '\0';  // If we successfully parse the entire string
-}
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] < '0' || str[i] > '9') {
+            return 0;
+        }
+    }
+    return 1;
+}    
 
 long long mod_exp(long long base, long long exp, long long mod) {
     if (mod <= 0) {
@@ -37,7 +40,7 @@ long long mod_exp(long long base, long long exp, long long mod) {
     }
 
     long long result = 1;
-    base = base % mod;
+    base = (base % mod + mod) % mod;
 
     while (exp > 0) {
         // If exp is odd, multiply base with result
@@ -70,7 +73,6 @@ int main(int argc, char *argv[]) {
     }
     
     // Read arguments
-    operation = argv[1];
     int e = atoi(argv[2]);
     int d = atoi(argv[3]);
     int p = atoi(argv[4]);
