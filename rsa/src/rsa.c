@@ -65,14 +65,14 @@ int main(int argc, char *argv[]) {
     // Read arguments and check if they are valid integers
     char *operation = argv[1];
     if (strcmp(operation, "enc") != 0 && strcmp(operation, "dec") != 0) {
-        printf("Error: First argument must be 'enc' or 'dec'\n");
+        printf("First argument must be 'enc' or 'dec'\n");
         return 1;
     }
 
     // Validate that all inputs are valid positive integers
     for (int i = 2; i <= 5; i++) {
         if (!is_valid_positive_integer(argv[i])) {
-            printf("Error: Negative numbers are not allowed\n");
+            printf("Negative numbers are not allowed\n");
             return 1;
         }
     }
@@ -85,11 +85,11 @@ int main(int argc, char *argv[]) {
 
     // Validate inputs
     if (p <= 0 || q <= 0 || e <= 0 || d <= 0) {
-        printf("Error: All input numbers must be positive integers\n");
+        printf("Negative numbers are not allowed\n");
         return 1;
     }
     if (!is_prime(p) || !is_prime(q)) {
-        printf("Error: Both p and q must be prime numbers\n");
+        printf("p and q must be prime\n");
         return 1;
     }
 
@@ -97,28 +97,28 @@ int main(int argc, char *argv[]) {
     long long phi_n = (p - 1) * (q - 1);
 
     if (phi_n <= 0) {
-        printf("Error: phi(N) must be greater than zero\n");
+        printf("phi(N) is not greater than zero\n");
         return 1;
     }
     if (gcd(e, phi_n) != 1) {
-        printf("Error: e must be coprime with phi(N)\n");
+        printf("e is not coprime with phi(N)\n");
         return 1;
     }
     if ((long long)e * d % phi_n != 1) {
-        printf("Error: e * d mod phi(N) must be 1\n");
+        printf("e * d mod phi(N) is not 1\n");
         return 1;
     }
 
     // Read the message
     long long message;
     if (scanf("%lld", &message) != 1) {
-        printf("Error: Invalid input for message\n");
+        printf("Invalid input for message\n");
         return 1;
     }
 
     // Ensure the message is within limits
     if (message < 0 || message >= n) {
-        printf("Error: Message must be in the range [0, N-1]\n");
+        printf("Message is larger than N\n");
         return 1;
     }
 
@@ -136,7 +136,7 @@ int main(int argc, char *argv[]) {
         }
         printf("%lld\n", decrypted);
     } else {
-        printf("Error: First argument must be 'enc' or 'dec'\n");
+        printf("First argument must be 'enc' or 'dec'\n");
         return 1;
     }
 
