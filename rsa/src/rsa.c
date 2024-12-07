@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+// Function to compute the greatest common divisor
 long long gcd(long long a, long long b) {
     while (b != 0) {
         long long temp = b;
@@ -11,6 +12,7 @@ long long gcd(long long a, long long b) {
     return llabs(a);
 }
 
+// Function to check if a number is prime
 int is_prime(int num) {
     if (num <= 1) {
         return 0;
@@ -23,8 +25,8 @@ int is_prime(int num) {
     return 1;
 }
 
-// Function to check if a string can be converted to a valid integer
-int is_valid_integer(const char* str) {
+// Function to check if a string represents a valid positive integer
+int is_valid_positive_integer(const char* str) {
     for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] < '0' || str[i] > '9') {
             return 0;
@@ -33,6 +35,7 @@ int is_valid_integer(const char* str) {
     return 1;
 }    
 
+// Modular exponentiation
 long long mod_exp(long long base, long long exp, long long mod) {
     if (mod <= 0) {
         printf("Error: modulus must be greater than zero\n");
@@ -43,11 +46,9 @@ long long mod_exp(long long base, long long exp, long long mod) {
     base = (base % mod + mod) % mod;
 
     while (exp > 0) {
-        // If exp is odd, multiply base with result
         if (exp % 2 == 1) {
             result = (result * base) % mod;
         }
-        // Divide exp by 2
         exp = exp / 2;
         base = (base * base) % mod;
     }
@@ -55,6 +56,7 @@ long long mod_exp(long long base, long long exp, long long mod) {
 }
 
 int main(int argc, char *argv[]) {
+    // Check for the correct number of arguments
     if (argc != 6) {
         printf("Usage: ./rsa enc|dec <exp_exp> <priv_exp> <prime1> <prime2>\n");
         return 1;
@@ -67,9 +69,12 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    if (!is_valid_integer(argv[2]) || !is_valid_integer(argv[3]) || !is_valid_integer(argv[4]) || !is_valid_integer(argv[5])) {
-        printf("Error: Exponent or prime arguments must be valid integers\n");
-        return 1;
+    // Validate that all inputs are valid positive integers
+    for (int i = 2; i <= 5; i++) {
+        if (!is_valid_positive_integer(argv[i])) {
+            printf("Error: Negative numbers are not allowed\n");
+            return 1;
+        }
     }
     
     // Read arguments
@@ -88,8 +93,8 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    long long n = (long long)p * q;
-    long long phi_n = (long long)(p - 1) * (q - 1);
+    long long n = p * q;
+    long long phi_n = (p - 1) * (q - 1);
 
     if (phi_n <= 0) {
         printf("Error: phi(N) must be greater than zero\n");
