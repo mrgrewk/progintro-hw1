@@ -69,7 +69,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    // Validate that all inputs are valid positive integers
+    // Make sure that all inputs are valid positive integers
     for (int i = 2; i <= 5; i++) {
         if (!is_valid_positive_integer(argv[i])) {
             printf("Negative numbers are not allowed\n");
