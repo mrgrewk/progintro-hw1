@@ -14,7 +14,7 @@ This program implements the RSA algorithm, a widely used cryptographic method fo
 
 The program operates on user-provided inputs, including public and private keys, and performs calculations within the constraints of the RSA algorithm.
 
-How to compile and run the program
+## How to compile and run the program
 
 **_<ins>The code is designed to be compiled and run on Linux based systems.</ins>_**
 
