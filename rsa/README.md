@@ -56,7 +56,7 @@ Where:
 
 Additionally, the plaintext message (for encryption) or ciphertext message (for decryption) is provided through standard input.
 
-#### Input Constraints:
+### Input Constraints:
 
 *   All integers (e, d, p, q, and the message) must be within the range \[-10^18, 10^18\].
     
@@ -69,7 +69,7 @@ Additionally, the plaintext message (for encryption) or ciphertext message (for 
 *   The product e \* d mod ϕ(N) must equal 1.
     
 
-#### Example:
+### Example:
 
 1. Encrypt a message
     ```
@@ -84,7 +84,7 @@ Additionally, the plaintext message (for encryption) or ciphertext message (for 
     ```
 
 
-### Error Handling
+## Error Handling
 
 If the program is executed with invalid arguments or inputs, it will terminate with an error message and return an exit code of 1.
  
@@ -123,14 +123,14 @@ If the program is executed with invalid arguments or inputs, it will terminate w
 ```
     
 
-### Exit Codes
+## Exit Codes
 
 *   0: Successful execution.
     
 *   1: Invalid arguments or input constraints violated.
     
 
-### Notes on Implementation
+## Notes on Implementation
 
 
 *   The RSA algorithm ensures security through mathematical principles, such as modular arithmetic and prime factorization.
